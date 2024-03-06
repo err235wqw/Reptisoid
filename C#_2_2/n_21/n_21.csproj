@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{276CC7C5-BB67-4CD3-BE2F-A4FC4AC822EB}</ProjectGuid>
+    <ProjectGuid>{F0CF7792-9E03-4770-82D0-CEE01C3159DA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>n_18_19</RootNamespace>
-    <AssemblyName>n_18_19</AssemblyName>
+    <RootNamespace>n_21</RootNamespace>
+    <AssemblyName>n_21</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,19 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Batch.cs" />
-    <Compile Include="Set.cs" />
-    <Compile Include="SingleProduct.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="products.txt" />
-    <Content Include="Элементы проекта\products.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
