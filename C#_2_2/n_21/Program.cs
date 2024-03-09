@@ -32,6 +32,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
 
+class sqq
+{
+
+}
 
 
 namespace n_21
