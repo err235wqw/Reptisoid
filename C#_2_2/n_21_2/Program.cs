@@ -31,12 +31,12 @@ using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
-using static n_21.Program;
+using static n_21_2.Program;
 using System.Diagnostics.Eventing.Reader;
 
 
 
-namespace n_21
+namespace n_21_2
 {
     class Program
     {
@@ -44,7 +44,7 @@ namespace n_21
         {
             BinaryTree tree = new BinaryTree();	//инициализируем дерево
             //на основе данных файла создаем дерево
-            using (StreamReader fileIn = new StreamReader("n_21.txt"))
+            using (StreamReader fileIn = new StreamReader("n_21_2.txt"))
             {
                 string line = fileIn.ReadToEnd();
                 string[] data = line.Split(' ');
@@ -57,9 +57,14 @@ namespace n_21
             Console.WriteLine();
             tree.Inorder();
             Console.WriteLine();
-            int counter = 0;
-            tree.Function(ref counter);
-            Console.WriteLine(counter);
+            List<object> counter = new List<object>();
+            int goal = Int32.Parse(Console.ReadLine());
+            tree.Function(ref counter, goal);
+            for(int i = 0; i < counter.Count; i++)
+            {
+                Console.WriteLine(counter[i]);
+                Console.WriteLine();
+            }
         }
     }
 }

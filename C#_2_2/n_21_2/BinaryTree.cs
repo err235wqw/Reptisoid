@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace n_21
+namespace n_21_2
 {
     internal class BinaryTree
     {
@@ -66,16 +66,16 @@ namespace n_21
                     Console.Write("{0} ", r.inf);
                 }
             }
-            public static void Function(Node r, ref int cnt)
+            public static void Function(Node r, ref List<object> cnt, int depth, int goal)
             {
                 if (r != null)
                 {
-                    if(((IComparable)(r.inf)).CompareTo(0) < 0)
+                    if (depth == goal)
                     {
-                        cnt++;
+                        cnt.Add(r.inf);
                     }
-                    Function(r.left, ref cnt);
-                    Function(r.right, ref cnt);
+                    Function(r.left, ref cnt, depth + 1, goal);
+                    Function(r.right, ref cnt, depth + 1, goal);
                 }
             }
             public static void Search(Node r, object key, out Node item)
@@ -192,9 +192,9 @@ namespace n_21
         {
             Node.Postorder(tree);
         }
-        public void Function(ref int cnt)
+        public void Function(ref List<object> cnt, int goal)
         {
-            Node.Function(tree, ref cnt);
+            Node.Function(tree, ref cnt, 0, goal);
         }
         public BinaryTree Search(object key)
         {
