@@ -70,12 +70,16 @@ namespace n_21
             {
                 if (r != null)
                 {
-                    if(((IComparable)(r.inf)).CompareTo(0) < 0)
+                    if(((IComparable)(r.inf)).CompareTo(0) >= 0)
+                    {
+                        Function(r.left, ref cnt);
+                    }
+                    else
                     {
                         cnt++;
+                        Function(r.left, ref cnt);
+                        Function(r.right, ref cnt);
                     }
-                    Function(r.left, ref cnt);
-                    Function(r.right, ref cnt);
                 }
             }
             public static void Search(Node r, object key, out Node item)

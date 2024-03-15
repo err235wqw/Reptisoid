@@ -74,8 +74,11 @@ namespace n_21_2
                     {
                         cnt.Add(r.inf);
                     }
-                    Function(r.left, ref cnt, depth + 1, goal);
-                    Function(r.right, ref cnt, depth + 1, goal);
+                    else
+                    {
+                        Function(r.left, ref cnt, depth + 1, goal);
+                        Function(r.right, ref cnt, depth + 1, goal);
+                    }
                 }
             }
             public static void Search(Node r, object key, out Node item)
