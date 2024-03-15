@@ -69,7 +69,8 @@ namespace n_21_2
             public static void Function(Node r, ref List<object> cnt, int depth, int goal)
             {
                 if (r != null)
-                {
+                {  
+                    Console.Write("{0} ", r.inf);
                     if (depth == goal)
                     {
                         cnt.Add(r.inf);

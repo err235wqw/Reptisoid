@@ -70,7 +70,8 @@ namespace n_21
             {
                 if (r != null)
                 {
-                    if(((IComparable)(r.inf)).CompareTo(0) >= 0)
+                    Console.Write("{0} ", r.inf);
+                    if (((IComparable)(r.inf)).CompareTo(0) >= 0)
                     {
                         Function(r.left, ref cnt);
                     }

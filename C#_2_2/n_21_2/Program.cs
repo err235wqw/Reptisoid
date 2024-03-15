@@ -60,6 +60,7 @@ namespace n_21_2
             List<object> counter = new List<object>();
             int goal = Int32.Parse(Console.ReadLine());
             tree.Function(ref counter, goal);
+            Console.WriteLine();
             for(int i = 0; i < counter.Count; i++)
             {
                 Console.WriteLine(counter[i]);
@@ -67,4 +68,4 @@ namespace n_21_2
             }
         }
     }
-}
+} 
