@@ -31,17 +31,18 @@ using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
+using static n_21.Program;
+using System.Diagnostics.Eventing.Reader;
 
-class sqq
-{
-
-}
 
 
 namespace n_21
 {
     class Program
     {
+        static void Main()
+        {
 
+        }
     }
 }

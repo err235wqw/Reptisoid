@@ -388,7 +388,6 @@ namespace Lab3 {
             break;
         case Keys::Escape:
             T = initT;
-            T = mat3(1.f); // присвоили T единичную матрицу
             break;
         case Keys::E:
             T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
