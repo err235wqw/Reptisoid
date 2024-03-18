@@ -41,6 +41,28 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContestSFedU-2024_Q", "Cont
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "south_park", "ContestSFedU-2024\south_park\south_park.vcxproj", "{7D972377-1B8B-4DE6-A290-977536356A71}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Условия", "Условия", "{EB53F8E9-B948-4136-A14A-642991BB3B6D}"
+	ProjectSection(SolutionItems) = preProject
+		ContestSFedU-2024\Условия\A.pdf = ContestSFedU-2024\Условия\A.pdf
+		ContestSFedU-2024\Условия\B.pdf = ContestSFedU-2024\Условия\B.pdf
+		ContestSFedU-2024\Условия\C.pdf = ContestSFedU-2024\Условия\C.pdf
+		ContestSFedU-2024\Условия\D.pdf = ContestSFedU-2024\Условия\D.pdf
+		ContestSFedU-2024\Условия\E.pdf = ContestSFedU-2024\Условия\E.pdf
+		ContestSFedU-2024\Условия\F.pdf = ContestSFedU-2024\Условия\F.pdf
+		ContestSFedU-2024\Условия\G.pdf = ContestSFedU-2024\Условия\G.pdf
+		ContestSFedU-2024\Условия\H.pdf = ContestSFedU-2024\Условия\H.pdf
+		ContestSFedU-2024\Условия\I.pdf = ContestSFedU-2024\Условия\I.pdf
+		ContestSFedU-2024\Условия\J.pdf = ContestSFedU-2024\Условия\J.pdf
+		ContestSFedU-2024\Условия\K.pdf = ContestSFedU-2024\Условия\K.pdf
+		ContestSFedU-2024\Условия\L.pdf = ContestSFedU-2024\Условия\L.pdf
+		ContestSFedU-2024\Условия\M.pdf = ContestSFedU-2024\Условия\M.pdf
+		ContestSFedU-2024\Условия\N.pdf = ContestSFedU-2024\Условия\N.pdf
+		ContestSFedU-2024\Условия\O.pdf = ContestSFedU-2024\Условия\O.pdf
+		ContestSFedU-2024\Условия\P.pdf = ContestSFedU-2024\Условия\P.pdf
+		ContestSFedU-2024\Условия\Q.pdf = ContestSFedU-2024\Условия\Q.pdf
+		ContestSFedU-2024\Условия\R.pdf = ContestSFedU-2024\Условия\R.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -214,6 +236,7 @@ Global
 		{325679FC-2744-4763-A39F-10196DEA3C90} = {1048A069-4818-4F5D-922A-962B6724F7D4}
 		{BA2D826D-AE1D-4F4E-8982-27D2D0C2F723} = {1048A069-4818-4F5D-922A-962B6724F7D4}
 		{7D972377-1B8B-4DE6-A290-977536356A71} = {1048A069-4818-4F5D-922A-962B6724F7D4}
+		{EB53F8E9-B948-4136-A14A-642991BB3B6D} = {1048A069-4818-4F5D-922A-962B6724F7D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19F10B65-F971-4F8B-8ECB-4BC80B658BE7}
