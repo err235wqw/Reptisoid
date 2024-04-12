@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace Lab4
 {
 
@@ -211,6 +212,8 @@ namespace Lab4
     float aspectFig = Vx / Vy; // соотношение сторон рисунка
     bool fl = 1;
 
+        
+
 
     mat3 T = mat3(1.f); // матрица, в которой накапливаются все преобразования
     // первоначально - единичная матрица
@@ -273,9 +276,11 @@ namespace Lab4
             // 
             // btnOpen
             // 
-            this->btnOpen->Location = System::Drawing::Point(195, 30);
+            this->btnOpen->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->btnOpen->Location = System::Drawing::Point(146, 24);
+            this->btnOpen->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
             this->btnOpen->Name = L"btnOpen";
-            this->btnOpen->Size = System::Drawing::Size(75, 23);
+            this->btnOpen->Size = System::Drawing::Size(56, 19);
             this->btnOpen->TabIndex = 0;
             this->btnOpen->Text = L"Открыть";
             this->btnOpen->UseVisualStyleBackColor = true;
@@ -283,11 +288,13 @@ namespace Lab4
             // 
             // MyForm
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(282, 253);
+            this->ClientSize = System::Drawing::Size(212, 206);
             this->Controls->Add(this->btnOpen);
             this->KeyPreview = true;
+            this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+            this->MinimumSize = System::Drawing::Size(155, 120);
             this->Name = L"MyForm";
             this->Text = L"MyForm";
             this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -299,12 +306,34 @@ namespace Lab4
         }
 #pragma endregion
     private: bool keepAspectRatio;
+    private: float left = 30, right = 100, top = 20, bottom = 50; // расстояния до границ окна
 
     private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
     }
     private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
         Graphics^ g = e->Graphics;
         g->Clear(Color::White);
+
+
+        Pen^ rectPen = gcnew Pen(Color::Black, 2);
+        g->DrawRectangle(rectPen, left, // от левого
+            top, // верхнего угла отмеряем вниз и вправо
+            ClientRectangle.Width - left - right, // ширина
+            ClientRectangle.Height - top - bottom); // высота
+
+        float minX = left, maxX = ClientRectangle.Width - right; // пределы изменения x
+        float minY = top, maxY = ClientRectangle.Height - bottom; // пределы изменения y
+
+
+        vec2 start = normalize(T * vec3(lines.vertices[0], 1.0)); // начальная точка первого отрезка
+        for (int j = 1; j < lines.vertices.size(); j++) { // цикл по конечным точкам (от единицы)
+            vec2 end = normalize(T * vec3(lines.vertices[j], 1.0)); // конечная точка
+            g->DrawLine(pen, start.x, start.y, end.x, end.y); // отрисовка отрезка
+            start = end; // конечная точка текущего отрезка становится начальной точкой следующего
+        }
+
+
+
 
         Pen^ blackPen = gcnew Pen(Color::Black, 2);
 
@@ -313,10 +342,17 @@ namespace Lab4
             Pen^ pen = gcnew Pen(Color::FromArgb(lines.color.x, lines.color.y, lines.color.z));
             pen->Width = lines.thickness;
             vec2 start = normalize(T * vec3(lines.vertices[0], 1.0)); // начальная точка первого отрезка
+
             for (int j = 1; j < lines.vertices.size(); j++) { // цикл по конечным точкам (от единицы)
                 vec2 end = normalize(T * vec3(lines.vertices[j], 1.0)); // конечная точка
+                vec2 tmpEnd = end; // продублировали координаты точки для будущего использования
+                if (clip(start, end, minX, minY, maxX, maxY)) { // если отрезок видим
+                    // после отсечения, start и end - концы видимой части отрезка
+                    g->DrawLine(pen, start.x, start.y, end.x, end.y); // отрисовка видимой части
+                }
+
                 g->DrawLine(pen, start.x, start.y, end.x, end.y); // отрисовка отрезка
-                start = end; // конечная точка текущего отрезка становится начальной точкой следующего
+                start = tmpEnd; // конечная точка неотсеченного отрезка становится начальной точкой следующего
             }
         }
     }
