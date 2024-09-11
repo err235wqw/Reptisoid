@@ -7,6 +7,4 @@ def main():
          answer = sum([prod([x - x_i for x_i in range(0,n) if x_i != x_iz]) / prod([x_iz - x_i for x_i in range(0,n) if x_i != x_iz]) for x_iz in range(0,n)])
          print(f"P_n({x}) = {answer}")
 
-        
-
 main()
