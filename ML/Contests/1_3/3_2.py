@@ -1,0 +1,1 @@
+print("True" if -sum([float(input()) for i in range(0, int(input()))]) + float(input()) >=0 else "False")
