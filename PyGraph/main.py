@@ -1,9 +1,9 @@
-from GraphStruct import Graph
+from Interface import Console
+
 
 def main():
-    print("hello")
+    Console()
 
 
 if __name__ == "__main__":
     main()
-    

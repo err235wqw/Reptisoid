@@ -1,0 +1,1 @@
+print('True' if set(input()) >= set(input()) else 'False')
